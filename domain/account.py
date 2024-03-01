@@ -8,7 +8,7 @@ class Account:
 
     def __init__(self, builder):
         self.account_id = builder.account_id
-        self.customer_id = builder.customer_id
+        self.customer = builder.customer
         self.account_number = builder.account_number
         self.balance = builder.balance
 
@@ -33,11 +33,11 @@ class AccountBuilder:
     def __init__(self):
         self.account_id = generate_account_id()
         self.account_number = generate_account_number()
-        self.customer_id = None
+        self.customer = None
         self.balance = None
 
-    def set_customer_id(self, customer_id):
-        self.customer_id = customer_id
+    def set_customer(self, customer):
+        self.customer = customer
         return self
 
     def set_balance(self, balance):
@@ -45,6 +45,6 @@ class AccountBuilder:
         return self
 
     def build(self):
-        if not all([self.account_id, self.customer_id, self.account_number, self.balance]):
+        if not all([self.account_id, self.customer, self.account_number, self.balance]):
             raise ValueError("Missing required attributes")
         return Account(self)
