@@ -8,6 +8,6 @@ class Transaction:
         self.transaction_type = transaction_type
         self.transaction_date = transaction_date or datetime.now()
 
-    def __repr__(self):
+    def __str__(self):
         return (f"Transaction(account_id={self.account_id}, amount={self.amount}, type={self.transaction_type}, \\"
                 f"date={self.transaction_date})")
