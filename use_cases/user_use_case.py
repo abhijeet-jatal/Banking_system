@@ -12,6 +12,6 @@ class UserUseCase:
                 .set_phone_number(phone_number)
                 .build())
 
-    def create_account(self, customer_id, balance):
+    def create_account(self, customer, balance):
         """Create a new account."""
-        return Account.get_builder().set_customer_id(customer_id).set_balance(balance).build()
+        return Account.get_builder().set_customer(customer).set_balance(balance).build()
